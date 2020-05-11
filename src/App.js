@@ -1,9 +1,17 @@
-import React, { Component } from "react"; //import class react dr React nya sndiri
+import React from "react"; //import class react dr React nya sndiri
+import HeadNavigation from "./components/HeadNavigation";
+import MainContent from "./components/MainContent";
+import FooterBottom from "./components/FooterBottom";
+
 
 function App() {
   return (
     <div>
-      <h1>Hello</h1>
+      <h1 style={{ color: "red" }}>Hello</h1>
+      <p style={warna}>Good morning</p>
+      <HeadNavigation />
+      <MainContent />
+      <FooterBottom />
     </div>
   )
 }
@@ -19,4 +27,9 @@ class App extends Component {
     )
   }
 } */
+
+const warna = {
+  color: "pink", //pke koma krn object
+  fontsize: "20px"
+}
 export default App;

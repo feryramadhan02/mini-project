@@ -1,11 +1,11 @@
 import React from "react"; //import class react dr React nya sndiri
+import "../assets/HeadNavigation.css";
 
-class App extends React.Component {
+class HeadNavigation extends React.Component { //nama class harus sama dgn nama file
     render() {
         return (
             <div>
-                <h1>Hallo</h1>
-                <h2>rr</h2>
+                <h3 className="title">Fery</h3>
             </div>
             //div hanya boleh 1 kali, krn dibuat per item-item
         )

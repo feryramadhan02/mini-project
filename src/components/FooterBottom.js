@@ -1,6 +1,6 @@
 import React from "react"; //import class react dr React nya sndiri
 
-class App extends React.Component {
+class FooterBottom extends React.Component { //nama class harus sama dgn nama file
     render() {
         return (
             <div>
@@ -11,4 +11,4 @@ class App extends React.Component {
         )
     }
 }
-export default HeadNavigation;
+export default FooterBottom;
