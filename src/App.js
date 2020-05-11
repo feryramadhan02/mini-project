@@ -7,7 +7,8 @@ function App() {
     </div>
   )
 }
-/*class App extends Component {
+/*------Bisa juga pke Class -------
+class App extends Component {
   render() {
     return (
       <div>
