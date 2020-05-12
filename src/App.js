@@ -2,6 +2,7 @@ import React from "react"; //import class react dr React nya sndiri
 import HeadNavigation from "./components/HeadNavigation";
 import MainContent from "./components/MainContent";
 import FooterBottom from "./components/FooterBottom";
+import MyProject from "./components/MyProject";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <HeadNavigation />
       <MainContent />
       <FooterBottom />
+      <MyProject />
     </div>
   )
 }
