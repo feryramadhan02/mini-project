@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from "react-router-dom";
 import "../assets/style/Login.scss";
 
 class Login extends React.Component {
@@ -12,6 +13,9 @@ class Login extends React.Component {
                             <p style={{ margin: " 0 10px" }}>Enter your personal details and</p>
                             <p style={{ margin: " 10px 20px" }}>start your journey with us</p>
                             <button>Sign up</button>
+                        </div>
+                        <div className="layout-form__logo">
+
                         </div>
                         <form action="/">
                             <input type="email" name="name" placeholder="Email" required="" />
