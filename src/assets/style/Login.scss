@@ -1,5 +1,64 @@
-@import './Variable.scss';
+@import './VarLogin.scss';
 
-.wall {
-    background-image: url("../images/wallpaper.jpg");
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: $background;
+    position: relative;
+    background-size: cover; //spy gbr ketika Zoomin-zoomout tdk terbagi 
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+.layout-form {
+    margin: 8rem auto;
+    width: 40%;
+    height: 22rem;
+    display: flex;
+    background-color: #d8d6d642;
+    box-shadow: 2px 2px 5px $shadow;
+    &__text-wrapper{
+        width: 35%;
+        height: 22rem;
+        background-color: #3c6df1;
+        h3{
+            margin: 100px 20px 25px 20px;
+            font-size: 20px;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p {
+            font-size: 11px;
+            color: #ffffff;
+        }
+    }
+}
+form {
+    width: 50%;
+    padding: 0 15px;
+    margin-left: 5rem;
+}
+input[type=email],
+input[type=password] {
+    width: 200px;
+    height: 30px;
+}
+button {
+    background-color: #3c6df1;
+    color: #ffffff;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    margin: 40px 30px 10px 30px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(40, 52, 221);
 }
