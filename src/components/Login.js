@@ -17,9 +17,9 @@ class Login extends React.Component {
                         <div className="layout-form__content">
                             <h2>Sign in to Task Manager</h2>
                             <ul>
-                                <li><Link to="/"><img src={require("../assets/images/Facebook_f_logo_(2019).svg")} /></Link></li>
-                                <li> <Link to="/"><img src={require("../assets/images/g+.svg")} /></Link></li>
-                                <li> <Link to="/"><img src={require("../assets/images/Linkedin.svg.png")} /></Link></li>
+                                <li><Link to="/"><img src={require("../assets/images/Facebook_f_logo_(2019).svg")} alt="" /></Link></li>
+                                <li> <Link to="/"><img src={require("../assets/images/g+.svg")} alt="" /></Link></li>
+                                <li> <Link to="/"><img src={require("../assets/images/Linkedin.svg.png")} alt="" /></Link></li>
                             </ul>
                             <p className="small-text">or use your email account</p>
                             <form action="/">
@@ -29,8 +29,8 @@ class Login extends React.Component {
                             </form>
                             <div className="layout-form__content__support">
                                 <ul>
-                                    <li><Link to="/"><img src={require("../assets/images/playstore.png")} /></Link></li>
-                                    <li><Link to="/"><img src={require("../assets/images/appstore.png")} /></Link></li>
+                                    <li><Link to="/"><img src={require("../assets/images/playstore.png")} alt="" /></Link></li>
+                                    <li><Link to="/"><img src={require("../assets/images/appstore.png")} alt="" /></Link></li>
                                 </ul>
                             </div>
                         </div>
