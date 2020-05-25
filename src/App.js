@@ -1,13 +1,14 @@
 import React from "react";
-import Login from "./components/Login";
 import { BrowserRouter } from "react-router-dom";
+import Routers from "./router/Routers";
+
 
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Login />
+        <Routers />
       </BrowserRouter>
 
     )

@@ -13,7 +13,7 @@ class Login extends React.Component {
                             <h3>Hello, Friend!</h3>
                             <p style={{ margin: " 0 10px" }}>Enter your personal details and</p>
                             <p style={{ margin: " 10px 25px" }}>start your journey with us</p>
-                            <button><Link to="/">Sign up</Link></button>
+                            <button><Link to="/sign_up">Sign up</Link></button>
                         </div>
                         <div className="layout-form__content">
                             <h2>Sign in to Task Manager</h2>

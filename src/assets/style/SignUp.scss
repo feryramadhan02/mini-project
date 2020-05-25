@@ -1,0 +1,132 @@
+@import './VarLogin.scss';
+
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: $background;
+    position: relative;
+    background-size: cover; //spy gbr ketika Zoomin-zoomout tdk terbagi 
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+.layout-forms {
+    margin: 8rem auto;
+    width: 40%;
+    height: 22rem;
+    display: flex;
+    background-color: #d8d6d642;
+    box-shadow: 2px 2px 5px $shadow;
+    &__text-wrapper{
+        width: 55%;
+        height: 22rem;
+        background-color: #3c6df1;
+        h3{
+            margin: 100px 15px 25px 15px;
+            font-size: 20px;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p {
+            font-size: 11px;
+            color: #ffffff;
+        }
+    }
+    &__content {
+        width: 100%;
+        h2 {
+            font-size: 25px;
+            color: #ffffff;
+            margin:40px 20px 10px 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 50px;
+            display: flex;
+            justify-content: center;
+            li {
+                padding: 10px;
+            }
+            img {
+                width: 40px;
+                border-radius: 2rem;
+            }
+        }
+        .small-text {
+            font-size: 12px;
+            margin: 0 80px 0 100px;
+            color: #918f8f;
+        }
+        &__support{
+            width: 100%;
+            ul {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+                p {
+                    margin-top: -5px;
+                    color: rgb(56, 56, 56);
+                    font-size: 11px;
+                }
+            
+            }
+        }
+    }
+}
+form {
+    width: 70%;
+    padding: 0 15px;
+    margin: 10px 20px 10px 50px;
+}
+input[type=email],
+input[type=password] {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 0.5rem;
+}
+button {
+    width: 8rem;
+    background-color: $button-color;
+    padding: 10px 30px;
+    display: inline-block;
+    position: relative;
+    border-radius: 2rem;
+    margin: 40px 25px 10px 25px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    a {
+        font-size: 12px;
+        color: #ffffff;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
+button:hover {
+    background-color: $hover-button;
+}
+input[type=submit]{
+    width: 8rem;
+    background-color: $button-color;
+    color: #ffffff;
+    padding: 10px 30px;
+    display: inline-block;
+    position: relative;
+    border-radius: 2rem;
+    margin-top: 5px;
+    margin-left: 35px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: $hover-button;
+}
+
