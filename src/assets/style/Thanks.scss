@@ -1,0 +1,54 @@
+@import './VarLogin.scss';
+
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: $background;
+    position: relative;
+    background-size: cover; //spy gbr ketika Zoomin-zoomout tdk terbagi 
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+.layout-formss {
+    margin: 8rem auto;
+    width: 40%;
+    height: 22rem;
+    display: flex;
+    background-color: #d8d6d642;
+    box-shadow: 2px 2px 5px $shadow;
+    &__text-wrapper{
+        width: 55%;
+        height: 22rem;
+        background-color: #3c6df1;
+        h3{
+            margin: 100px 15px 25px 15px;
+            font-size: 20px;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        p {
+            font-size: 11px;
+            color: #ffffff;
+        }
+    }
+    &__thanks {
+        width: 100%;
+        h2{
+            color: #ffffff;
+            text-shadow: 2px 2px 5px #585858;
+            margin: 100px 20px 15px 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+       h3 {
+            font-size: 16px;
+            text-shadow: 2px 2px 6px #585858;
+            margin: 0 40px 15px 40px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #ffffff;
+       }
+    }
+}
+

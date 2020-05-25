@@ -14,15 +14,16 @@ class SignUp extends React.Component {
                             <p style={{ margin: " 0 6px" }}>To keep connected with us please</p>
                             <p style={{ margin: " 10px 16px" }}>login with your personal info</p>
                             <button><Link to="/">Sign in</Link></button>
-                            <button><Link to="/upload">c</Link></button>
                         </div>
                         <div className="layout-forms__content">
-                            {/* <div className="layout-forms__content__photo">
-                                <img 
-                            </div> */}
-                            <p className="small-text">or use your email account</p>
-                            <form action="/">
-                                <input type="email" name="name" placeholder="Email" required="" />
+                            <div className="layout-forms__content__photo">
+                                {/* /*upload*/}
+
+                            </div>
+                            <p className="small-text">or use your email for registration</p>
+                            <form action="/thanks">
+                                <input type="text" name="name" placeholder="Username" required="" />
+                                <input type="email" name="email" placeholder="Email" required="" />
                                 <input type="password" placeholder="Password" />
                                 <input type="submit" value="Send" />
                             </form>
