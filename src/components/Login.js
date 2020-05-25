@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/Login.scss";
+import "../assets/style/Responsive.scss";
 
 class Login extends React.Component {
     render() {
@@ -17,9 +18,9 @@ class Login extends React.Component {
                         <div className="layout-form__content">
                             <h2>Sign in to Task Manager</h2>
                             <ul>
-                                <li><Link to="/"><img src={require("../assets/images/fbhitam-pth.png")} alt="" /></Link></li>
-                                <li> <Link to="/"><img src={require("../assets/images/g+.png")} alt="" /></Link></li>
-                                <li> <Link to="/"><img src={require("../assets/images/linkedin.png")} alt="" /></Link></li>
+                                <li><Link to="/"><img src={require("../assets/images/fb-1.png")} alt="" /></Link></li>
+                                <li> <Link to="/"><img src={require("../assets/images/g+2.png")} alt="" /></Link></li>
+                                <li> <Link to="/"><img src={require("../assets/images/linkedin-3.png")} alt="" /></Link></li>
                             </ul>
                             <p className="small-text">or use your email account</p>
                             <form action="/">
@@ -29,7 +30,7 @@ class Login extends React.Component {
                             </form>
                             <div className="layout-form__content__support">
                                 <ul>
-                                    <li><Link to="/"><p>Forgot your password?</p></Link></li>
+                                    <li><a href="http://gmail.com"><p>Forgot your password?</p></a></li>
                                 </ul>
                             </div>
                         </div>
