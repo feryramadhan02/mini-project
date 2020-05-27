@@ -56,9 +56,15 @@ body {
                 border-radius: 2rem;
             }
         }
+        img {
+            width: 70px;
+            height: 70px;
+            border-radius: 3rem;
+            margin: 5px 10px 10px 60px;
+        }
         .small-text {
             font-size: 12px;
-            margin: 0 70px;
+            margin: 10px;
             color: #918f8f;
         }
         &__support{

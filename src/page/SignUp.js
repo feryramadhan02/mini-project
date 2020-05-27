@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/SignUp.scss";
 import "../assets/style/Responsive.scss";
+import ImageUpload from '../components/ImageUpload';
 
 class SignUp extends React.Component {
     render() {
@@ -16,12 +17,10 @@ class SignUp extends React.Component {
                             <button><Link to="/">Sign in</Link></button>
                         </div>
                         <div className="layout-forms__content">
-                            <div className="layout-forms__content__photo">
-                                {/* /*upload*/}
-
-                            </div>
-                            <p className="small-text">or use your email for registration</p>
                             <form action="/thanks">
+                                <img src={require("../assets/images/photo.jpg")} alt="" />
+                                <ImageUpload />
+                                <p className="small-text">or use your email for registration</p>
                                 <input type="text" name="name" placeholder="Username" required="" />
                                 <input type="email" name="email" placeholder="Email" required="" />
                                 <input type="password" placeholder="Password" />
