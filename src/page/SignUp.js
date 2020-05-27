@@ -3,8 +3,31 @@ import { Link } from "react-router-dom";
 import "../assets/style/SignUp.scss";
 import "../assets/style/Responsive.scss";
 import ImageUpload from '../components/ImageUpload';
+import axios from "axios";
+
+const baseUrl = "https://be-mini-project.herokuapp.com/api/user/register"
 
 class SignUp extends React.Component {
+    state = {
+        todos: [],
+        username: ""
+    }
+
+    addTodo = async () => {
+        // Loading indicator
+        this.setState({ isLoading: true })
+        // post to add new data in database
+        const res = await axios.post(`${baseUrl}`, {
+            username: this.state.username
+        })
+        // update UI
+        this.setState({
+            todos: [res.data, ...this.state.todos],
+            isLoading: false,
+            username: ""
+        })
+    }
+
     render() {
         return (
             <Fragment>
@@ -24,7 +47,7 @@ class SignUp extends React.Component {
                                 <input type="text" name="name" placeholder="Username" required="" />
                                 <input type="email" name="email" placeholder="Email" required="" />
                                 <input type="password" placeholder="Password" />
-                                <input type="submit" value="Send" />
+                                <input type="submit" value="Send" onClick={this.addTodo} />
                             </form>
                         </div>
                     </div>
