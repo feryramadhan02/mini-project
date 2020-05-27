@@ -10,7 +10,8 @@ const baseUrl = "https://be-mini-project.herokuapp.com/api/user/register"
 class SignUp extends React.Component {
     state = {
         todos: [],
-        username: ""
+        email: "",
+        password: ""
     }
 
     addTodo = async () => {
@@ -18,13 +19,15 @@ class SignUp extends React.Component {
         this.setState({ isLoading: true })
         // post to add new data in database
         const res = await axios.post(`${baseUrl}`, {
-            username: this.state.username
+            email: this.state.email,
+            password: this.state.password
         })
         // update UI
         this.setState({
             todos: [res.data, ...this.state.todos],
             isLoading: false,
-            username: ""
+            email: "",
+            password: ""
         })
     }
 
