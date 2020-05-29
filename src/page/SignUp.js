@@ -15,9 +15,6 @@ class SignUp extends React.Component {
     }
 
     addTodo = async () => {
-        // Loading indicator
-        this.setState({ isLoading: true })
-        // post to add new data in database
         const res = await axios.post(`${baseUrl}`, {
             email: this.state.email,
             password: this.state.password
@@ -25,7 +22,6 @@ class SignUp extends React.Component {
         // update UI
         this.setState({
             todos: [res.data, ...this.state.todos],
-            isLoading: false,
             email: "",
             password: ""
         })
@@ -48,9 +44,9 @@ class SignUp extends React.Component {
                                 <ImageUpload />
                                 <p className="small-text">or use your email for registration</p>
                                 <input type="text" name="name" placeholder="Username" required="" />
-                                <input type="email" name="email" value={this.state.email} placeholder="Email" required="" />
+                                <input type="email" name="email" placeholder="Email" required="" />
                                 <input type="password" placeholder="Password" />
-                                <input type="submit" value="Send" onClick={this.addTodo} />
+                                <input type="submit" value="Sign Up" onClick={this.addTodo} />
                             </form>
                         </div>
                     </div>

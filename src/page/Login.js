@@ -23,7 +23,7 @@ class Login extends React.Component {
                                 <li> <Link to="/"><img src={require("../assets/images/linkedin-3.png")} alt="" /></Link></li>
                             </ul>
                             <p className="small-text">or use your email account</p>
-                            <form action="/">
+                            <form action="/dashboard">
                                 <input type="email" name="name" placeholder="Email" required="" />
                                 <input type="password" placeholder="Password" />
                                 <input type="submit" value="Sign in" />
