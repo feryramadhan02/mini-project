@@ -48,7 +48,7 @@ class SignUp extends React.Component {
                                 <ImageUpload />
                                 <p className="small-text">or use your email for registration</p>
                                 <input type="text" name="name" placeholder="Username" required="" />
-                                <input type="email" name="email" placeholder="Email" required="" />
+                                <input type="email" name="email" value={this.state.email} placeholder="Email" required="" />
                                 <input type="password" placeholder="Password" />
                                 <input type="submit" value="Send" onClick={this.addTodo} />
                             </form>
