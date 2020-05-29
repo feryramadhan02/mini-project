@@ -70,9 +70,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 =======
 # fery
 
-<h3>Repo Materi React</h3>
-<p>1. Virtual DOM</p>
-<p>2. state & props</p>
-<p>3. Route</p>
+<h4>Mini-Project</h4>
 
 >>>>>>> 8227a395957ddaa26ca7f9dea4de97d19b4b1890
