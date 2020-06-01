@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/SignUp.scss";
 import "../assets/style/Responsive.scss";
-import ImageUpload from '../components/ImageUpload';
 import axios from "axios";
 
 const baseUrl = "https://be-mini-project.herokuapp.com/api/user/register"
@@ -40,8 +39,6 @@ class SignUp extends React.Component {
                         </div>
                         <div className="layout-forms__content">
                             <form action="/thanks">
-                                <img src={require("../assets/images/photo.jpg")} alt="" />
-                                <ImageUpload />
                                 <p className="small-text">or use your email for registration</p>
                                 <input type="text" name="name" placeholder="Username" required="" />
                                 <input type="email" name="email" placeholder="Email" required="" />
