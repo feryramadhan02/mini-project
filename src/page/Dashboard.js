@@ -8,15 +8,19 @@ const baseUrl = "https://be-mini-project.herokuapp.com/api/user/register"
 
 class Login extends React.Component {
     state = {
-        title: ""
+        todos: [],
+        isLoading: false,
+        title: "" //bentuk teks bukn array
     }
 
     addTask = async () => {
+        this.setState({ isLoading: true })
         const res = await axios.post(`${baseUrl}`, {
             title: this.state.title,
+            completed: false
         })
         this.setState({
-            title: [res.data, ...this.state.title],
+            todos: [res.data, ...this.state.todos],
             title: ""
         })
     }
@@ -37,11 +41,11 @@ class Login extends React.Component {
                                 <li><Link to="/important">important</Link></li>
                                 <li><Link to="/completed">Completed</Link></li>
                             </ul>
-
                         </div>
                         <div className="layout__task">
                             <input type="text" value={this.state.title} onChange={this.change} placeholder="add task..." />
                             <button onClick={this.addTask}>Add</button>
+                            <p>{this.state.isLoading && "loding..."}</p>
                         </div>
                     </div>
                 </div>
