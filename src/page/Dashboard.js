@@ -54,17 +54,7 @@ class Login extends React.Component {
                             </div>
                             <input type="text" value={this.state.title} onChange={this.change} placeholder="add task..." />
                             <button onClick={this.addTask}>Add</button>
-                            <div className="gbr">
-                                <img src={require("../assets/images/star1.png")} alt="" />
-                                <img src={require("../assets/images/star2.png")} alt="" />
-                                <img src={require("../assets/images/pen.png")} alt="" />
-                            </div>
-                            <div class="pretty p-default">
-                                <input type="checkbox" />
-                                <div class="state p-danger-o">
-                                    <label>Danger</label>
-                                </div>
-                            </div>
+
                             <p>{this.state.isLoading && "loding..."}</p>
                         </div>
                     </div>
