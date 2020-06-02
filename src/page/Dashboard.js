@@ -59,7 +59,12 @@ class Login extends React.Component {
                                 <img src={require("../assets/images/star2.png")} alt="" />
                                 <img src={require("../assets/images/pen.png")} alt="" />
                             </div>
-
+                            <div class="pretty p-default">
+                                <input type="checkbox" />
+                                <div class="state p-danger-o">
+                                    <label>Danger</label>
+                                </div>
+                            </div>
                             <p>{this.state.isLoading && "loding..."}</p>
                         </div>
                     </div>
