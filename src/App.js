@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routers from "./router/Routers";
 
@@ -7,9 +7,11 @@ import Routers from "./router/Routers";
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <Routers />
-      </BrowserRouter>
+      <Fragment>
+        <BrowserRouter>
+          <Routers />
+        </BrowserRouter>
+      </Fragment>
 
     )
   }

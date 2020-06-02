@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/SignUp.scss";
 import "../assets/style/Responsive.scss";
+import Swal from 'sweetalert2';
 import axios from "axios";
 
-const baseUrl = "https://be-mini-project.herokuapp.com/api/user/register"
 
 class SignUp extends React.Component {
     state = {
@@ -25,7 +25,7 @@ class SignUp extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let token = localStorage.getItem('token')
-        console.log('sukess mi')
+        console.log('fungsi run')
 
         this.setState({ loading: true })
         axios({
@@ -35,9 +35,10 @@ class SignUp extends React.Component {
                 Authorization: token
             },
             data: {
+                name: this.state.name,
                 email: this.state.email,
-                password: this.state.password,
-                name: this.state.name
+                password: this.state.password
+
             }
         })
             .then(res => {
@@ -75,12 +76,13 @@ class SignUp extends React.Component {
                             <button><Link to="/">Sign in</Link></button>
                         </div>
                         <div className="layout-forms__content">
-                            <form style={{ marginTop: "40px" }}>
+                            <form>
+                                <h3>Please make your account</h3>
                                 <p className="small-text">or use your email for registration</p>
                                 <input type="text" id="name" value={this.state.name} onChange={this.handleOnChange} placeholder="Username" required="" />
                                 <input type="email" id="email" value={this.state.email} onChange={this.handleOnChange} placeholder="Email" required="" />
-                                <input type="password" value={this.state.password} onChange={this.handleOnChange} placeholder="Password" />
-                                <input type="submit" value="Sign Up" onClick={this.addTodo} />
+                                <input type="password" id="password" value={this.state.password} onChange={this.handleOnChange} placeholder="Password" />
+                                <button onClick={this.handleSubmit}>Sign Up</button>
                             </form>
                         </div>
                     </div>

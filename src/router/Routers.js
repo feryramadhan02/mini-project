@@ -1,17 +1,20 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Login from "../page/Login";
 import Dashboard from "../page/Dashboard";
 import SignUp from "../page/SignUp";
-import Thanks from "../page/Thanks";
+
+//import PrivateRoute from './route/PrivateRoute';
 
 const Routers = () => {
     return (
         <div>
-            <Route path="/" component={Login} exact />
-            <Route path="/dashboard" component={Dashboard} exact />
-            <Route path="/sign_up" component={SignUp} exact />
-            <Route path="/thanks" component={Thanks} exact />
+            <Switch>
+                <Route path="/" component={Login} exact />
+                <Route path="/sign_up" component={SignUp} exact />
+                <Route path="/dashboard" component={Dashboard} exact />
+            </Switch>
+
         </div>
     )
 }
