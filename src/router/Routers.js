@@ -13,6 +13,7 @@ const Routers = () => {
                 <Route path="/" component={Login} exact />
                 <Route path="/sign_up" component={SignUp} exact />
                 <Route path="/dashboard" component={Dashboard} exact />
+                <Route component={() => "404 Not Found"} />
             </Switch>
 
         </div>

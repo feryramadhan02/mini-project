@@ -32,7 +32,7 @@ class SignUp extends React.Component {
             method: "POST",
             url: "https://be-mini-project.herokuapp.com/api/user/register",
             headers: {
-                Authorization: token
+                authorization: token
             },
             data: {
                 name: this.state.name,

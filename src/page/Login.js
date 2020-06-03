@@ -2,8 +2,60 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/Login.scss";
 import "../assets/style/Responsive.scss";
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import verifyToken from '../helper/VerifyToken';
 
 class Login extends React.Component {
+    state = {
+        email: "",
+        password: ""
+    }
+
+    componentDidMount() {
+        let token = verifyToken()
+        if (token) this.props.history.replace('/')
+    }
+
+    handleOnchange = (e) => {
+        e.preventDefault();
+
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    handleLoginClick = (e) => {
+        e.preventDefault()
+        console.log('fungsi run')
+
+        axios({
+            method: "POST",
+            url: "https://be-mini-project.herokuapp.com/api/user/login",
+            data: {
+                email: this.state.email,
+                password: this.state.password
+            }
+        })
+            .then(res => {
+                if (res.data.status) {
+                    // jika responnya berupa status maka Simpan Token di local storage
+                    localStorage.setItem('token', res.data.data.token)
+                    //console.log(res.data.data atau .token atau .status) digunakan utk mencari letak token
+
+                    this.props.history.push("/dashboard")
+                } else {
+                    // Handle Error yang masuk ke then
+                }
+            })
+            .catch(err => {
+                Swal.fire({
+                    icon: "error",
+                    text: err.response.data.message
+                })
+            })
+
+    }
     render() {
         return (
             <Fragment>
@@ -24,9 +76,15 @@ class Login extends React.Component {
                             </ul>
                             <p className="small-text">or use your email account</p>
                             <form action="/dashboard">
-                                <input type="email" name="name" placeholder="Email" required="" />
-                                <input type="password" placeholder="Password" />
-                                <input type="submit" value="Sign in" />
+                                <input type="email" id="email"
+                                    value={this.state.email}
+                                    onChange={this.handleOnchange}
+                                    placeholder="Email" required="" />
+                                <input type="password" id="password"
+                                    value={this.state.password}
+                                    onChange={this.handleOnchange}
+                                    placeholder="Password" />
+                                <input type="submit" onClick={this.handleLoginClick} value="Sign in" />
                             </form>
                             <div className="layout-form__content__support">
                                 <ul>
