@@ -10,12 +10,13 @@ const baseUrl = "https://be-mini-project.herokuapp.com/api/task/"
 
 class Login extends React.Component {
     state = {
-        task: [],
+        task: [], //sesuaikan doc Api, [] atau ""
         title: "",
         description: "",
         due_date: ""
     }
 
+    //asynchronus krn tdk d tau yang mana dluan muncul
     getTask = async () => {
         let token = localStorage.getItem('token')
         try {
@@ -32,9 +33,12 @@ class Login extends React.Component {
     }
     componentDidMount() {
         this.getTask()
-    }
+    } // klo pke hooks, pke useStates atau use....
+
     change = e => {
-        this.setState({ title: e.target.value, description: e.target.value, due_date: e.target.value })
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
 
@@ -50,6 +54,7 @@ class Login extends React.Component {
             headers: {
                 authorization: token
             },
+            //sesuaikan dgn doc pke body atau data  
             data: {
                 title: this.state.title,
                 description: this.state.description,
@@ -71,7 +76,7 @@ class Login extends React.Component {
 
                 Swal.fire({
                     icon: 'error',
-                    text: err.response.status
+                    text: err.response.message
                 })
             })
     }
@@ -79,11 +84,12 @@ class Login extends React.Component {
     deleteTask = async (id) => {
         let token = localStorage.getItem('token')
         try {
-            const res = await axios.delete(`${baseUrl}/${id}`, {
+            const res = await axios.delete(`${baseUrl}${id}`, {
                 headers: {
                     authorization: token
                 }
             })
+            console.log('id : ', id)
             if (res.data.status === "success") {
                 this.setState({
                     task: this.state.task.filter(item => item.id !== id)
@@ -99,7 +105,7 @@ class Login extends React.Component {
 
     handleLogout = (e) => {
         e.preventDefault()
-        localStorage.removeItem("token");
+        localStorage.removeItem("token")
         this.props.history.replace("/")
     }
 
@@ -116,26 +122,25 @@ class Login extends React.Component {
                                 <li><Link to="/important">important</Link></li>
                                 <li><Link to="/completed">Completed</Link></li>
                             </ul>
-
                         </div>
                         <div className="layout__task">
                             <div className="layout__task__todos">
                                 <ul>
-                                    <h4>Todos</h4>
+                                    <h4>My Day</h4>
                                     <button onClick={this.handleLogout}>Sign Out</button>
                                 </ul>
                             </div>
                             <input type="text" name="title" value={this.state.title} onChange={this.change} placeholder="add task..." />
-                            <input type="text" name="description" value={this.state.description} onChange={this.change} placeholder="add task..." />
-                            <input type="text" name="due_date" value={this.state.due_date} onChange={this.change} placeholder="add task..." />
+                            <input type="text" name="description" value={this.state.description} onChange={this.change} placeholder="add description" />
+                            <input type="text" name="due_date" value={this.state.due_date} onChange={this.change} placeholder="add due_date" />
                             <button onClick={this.addTask}>Add</button>
                             <ul>
                                 {this.state.task.map(item =>
                                     <li key={item.id}>
                                         <div> {item.title} </div>
                                         <div>{item.description} </div>
-                                        <button onClick={this.deleteTask}>delete</button>
-
+                                        <div>{item.due_date} </div>
+                                        <button onClick={() => this.deleteTask(item.id)}>delete</button>
                                     </li>
                                 )}
                             </ul>

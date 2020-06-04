@@ -27,7 +27,7 @@ class Login extends React.Component {
 
     handleLoginClick = (e) => {
         e.preventDefault()
-        console.log('fungsi run')
+        console.log('fungsi running...')
 
         axios({
             method: "POST",
