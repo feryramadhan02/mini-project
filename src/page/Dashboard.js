@@ -135,10 +135,10 @@ class Login extends React.Component {
                             </div>
                             <input type="text" name="title" value={this.state.title} onChange={this.change} placeholder="add task..." />
                             <input type="text" name="description" value={this.state.description} onChange={this.change} placeholder="add description" />
-                            <input type="text" name="due_date" value={this.state.due_date} onChange={this.change} placeholder="add due_date" />
-                            <button onClick={this.addTask}>Add</button>
-                            <div className="layout__task__list">
+                            <button style={{ padding: "7px" }} onClick={this.addTask}>Add</button>
+                            <input type="text" style={{ marginBottom: "15px" }} name="due_date" value={this.state.due_date} onChange={this.change} placeholder="add due_date" />
 
+                            <div className="layout__task__list">
                                 {this.state.task.map(item =>
                                     <ul>
                                         <li key={item.id}>
@@ -155,10 +155,7 @@ class Login extends React.Component {
                                         </li>
                                     </ul>
                                 )}
-
                             </div>
-
-
                         </div>
                     </div>
                 </div>
