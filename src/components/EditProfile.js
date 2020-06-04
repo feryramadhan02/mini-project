@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
-import "../assets/style/Login.scss";
 import "../assets/style/EditProfile.scss";
 import axios from "axios";
 import Swal from 'sweetalert2';
 
-const baseUrl = "https://be-mini-project.herokuapp.com/api/profile/"
+//const baseUrl = "https://be-mini-project.herokuapp.com/api/profile/"
 
 class EditProfile extends React.Component {
     state = {
@@ -56,7 +55,7 @@ class EditProfile extends React.Component {
             this.setState({ loading: true })
 
             axios({
-                method: "POST",
+                method: "PUT",
                 url: "https://be-mini-project.herokuapp.com/api/profile/",
                 headers: {
                     Authorization: token
@@ -114,8 +113,8 @@ class EditProfile extends React.Component {
                                 </ul>
                             </div>
                             <div>
-                                <input type="text" name="name" placeholder="enter user fullname" />
-                                <button onClick={this.handleSubmit}>Submit</button>
+                                <input type="file" id="exampleCustomFileBrowser" name="customFile" onChange={this.handleFileOnChange} placeholder="enter user fullname" />
+                                <button style={{ marginLeft: "120px" }} onClick={this.handleSubmit}>Submit</button>
                             </div>
 
                         </div>

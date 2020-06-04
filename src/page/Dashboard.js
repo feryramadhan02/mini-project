@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
-import "../assets/style/Login.scss";
 import "../assets/style/Dashboard.scss";
 import axios from "axios";
 import Swal from 'sweetalert2';
 
 const baseUrl = "https://be-mini-project.herokuapp.com/api/task/"
+const profileUrl = "https://be-mini-project.herokuapp.com/api/profile/"
 
 class Login extends React.Component {
     state = {
         task: [], //sesuaikan doc Api, [] atau ""
+        profile: "",
         title: "",
         description: "",
         due_date: ""
@@ -30,8 +31,25 @@ class Login extends React.Component {
             console.log(error)
         }
     }
+
+    getProfile = async (id) => {
+        let token = localStorage.getItem('token')
+        try {
+            const res1 = await axios.get(`${profileUrl}${id}`, {
+                headers: {
+                    authorization: token
+                }
+            })
+            this.setState({ profile: res1.data.data })
+            console.log(res1.data.data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     componentDidMount() {
         this.getTask()
+        this.getProfile()
     } // klo pke hooks, pke useStates atau use....
 
     change = e => {
@@ -102,7 +120,6 @@ class Login extends React.Component {
     }
 
 
-
     handleLogout = (e) => {
         e.preventDefault()
         localStorage.removeItem("token")
@@ -119,8 +136,8 @@ class Login extends React.Component {
                             <img src={require("../assets/images/default-user-image.png")} alt="" />
                             {this.imagePath &&
                                 <img src={this.imagePath} alt="Card image cap" />}
-                            <h3>Name</h3>
-                            <ul>
+                            <h3>{this.state.profile.name}</h3>
+                            <ul style={{ marginTop: "20px" }}>
                                 <li><Link to="/my_day">My day</Link></li>
                                 <li><Link to="/important">Important</Link></li>
                                 <li><Link to="/completed">Completed</Link></li>
@@ -137,7 +154,6 @@ class Login extends React.Component {
                             <input type="text" name="description" value={this.state.description} onChange={this.change} placeholder="add description" />
                             <button style={{ padding: "7px" }} onClick={this.addTask}>Add</button>
                             <input type="text" style={{ marginBottom: "15px" }} name="due_date" value={this.state.due_date} onChange={this.change} placeholder="add due_date" />
-
                             <div className="layout__task__list">
                                 {this.state.task.map(item =>
                                     <ul>
@@ -155,11 +171,13 @@ class Login extends React.Component {
                                         </li>
                                     </ul>
                                 )}
+
                             </div>
+
                         </div>
                     </div>
                 </div>
-            </Fragment>
+            </Fragment >
         )
     }
 }
