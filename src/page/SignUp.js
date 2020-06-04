@@ -59,7 +59,7 @@ class SignUp extends React.Component {
 
                 Swal.fire({
                     icon: 'error',
-                    text: err.response.data.status
+                    text: err.response.data.message
                 })
             })
     }

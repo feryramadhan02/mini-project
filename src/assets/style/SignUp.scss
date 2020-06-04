@@ -90,6 +90,7 @@ form {
         color: #ffffff;
         padding: 10px 30px;
         display: inline-block;
+        outline: none;
         position: relative;
         border-radius: 2rem;
         margin-top: 5px;
@@ -124,6 +125,7 @@ input[type=submit]{
     margin-top: 5px;
     margin-left: 35px;
     border: none;
+    outline: none;
     text-transform: uppercase;
     cursor: pointer;
 }

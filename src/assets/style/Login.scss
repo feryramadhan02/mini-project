@@ -93,6 +93,7 @@ input[type=password] {
 }
 button {
     width: 8rem;
+    outline: none;
     background-color: $button-color;
     padding: 10px 30px;
     display: inline-block;
@@ -118,6 +119,7 @@ input[type=submit]{
     color: #ffffff;
     padding: 10px 30px;
     display: inline-block;
+    outline: none;
     position: relative;
     border-radius: 2rem;
     margin-top: 5px;

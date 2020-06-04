@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/Login.scss";
 import "../assets/style/Dashboard.scss";
-import ImageUpload from '../components/ImageUpload';
 import axios from "axios";
 import Swal from 'sweetalert2';
 
@@ -83,6 +82,7 @@ class Login extends React.Component {
 
     deleteTask = async (id) => {
         let token = localStorage.getItem('token')
+        alert('Apakah anda yakin?')
         try {
             const res = await axios.delete(`${baseUrl}${id}`, {
                 headers: {
@@ -115,11 +115,14 @@ class Login extends React.Component {
                 <div className="container">
                     <div className="layout">
                         <div className="layout__text-wrapper">
-                            <img src={require("../assets/images/photo.jpg")} alt="" />
-                            <ImageUpload />
+                            <p><Link to="/editprofile">Edit Profile</Link></p>
+                            <img src={require("../assets/images/default-user-image.png")} alt="" />
+                            {this.imagePath &&
+                                <img src={this.imagePath} alt="Card image cap" />}
+                            <h3>Name</h3>
                             <ul>
                                 <li><Link to="/my_day">My day</Link></li>
-                                <li><Link to="/important">important</Link></li>
+                                <li><Link to="/important">Important</Link></li>
                                 <li><Link to="/completed">Completed</Link></li>
                             </ul>
                         </div>
@@ -134,16 +137,27 @@ class Login extends React.Component {
                             <input type="text" name="description" value={this.state.description} onChange={this.change} placeholder="add description" />
                             <input type="text" name="due_date" value={this.state.due_date} onChange={this.change} placeholder="add due_date" />
                             <button onClick={this.addTask}>Add</button>
-                            <ul>
+                            <div className="layout__task__list">
+
                                 {this.state.task.map(item =>
-                                    <li key={item.id}>
-                                        <div> {item.title} </div>
-                                        <div>{item.description} </div>
-                                        <div>{item.due_date} </div>
-                                        <button onClick={() => this.deleteTask(item.id)}>delete</button>
-                                    </li>
+                                    <ul>
+                                        <li key={item.id}>
+                                            <input type="checkbox"></input>
+                                            <div className="judul"> {item.title} </div>
+                                            <div>{item.description}</div>
+                                            {item.due_date}
+                                            <button >
+                                                <img src={require("../assets/images/pen.png")} alt="" />
+                                            </button>
+                                            <button onClick={() => this.deleteTask(item.id)}>
+                                                <img src={require("../assets/images/trash.png")} alt="" />
+                                            </button>
+                                        </li>
+                                    </ul>
                                 )}
-                            </ul>
+
+                            </div>
+
 
                         </div>
                     </div>

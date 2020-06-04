@@ -13,7 +13,8 @@ function PrivateRoute(props) {
                 // Jika token valid, balikin dong komponennya
                 // Kalau tidak, ke login page aja
                 return token ?
-                    <Component {...props} /> :
+                    <Component {...props} />
+                    :
                     <Redirect to="/login" />
             }}
         />
