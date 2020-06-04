@@ -56,7 +56,7 @@ class EditProfile extends React.Component {
 
             axios({
                 method: "PUT",
-                url: "https://be-mini-project.herokuapp.com/api/profile/",
+                url: "https://be-mini-project.herokuapp.com/api/profile/${id}",
                 headers: {
                     Authorization: token
                 },
@@ -80,7 +80,7 @@ class EditProfile extends React.Component {
 
                     Swal.fire({
                         icon: 'error',
-                        text: err.response.data.message
+                        text: 'error'
                     })
                 })
         }

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import "../assets/style/Dashboard.scss";
 import axios from "axios";
+import { Spinner } from "reactstrap";
 import Swal from 'sweetalert2';
 
 const baseUrl = "https://be-mini-project.herokuapp.com/api/task/"
@@ -13,7 +14,8 @@ class Login extends React.Component {
         profile: "",
         title: "",
         description: "",
-        due_date: ""
+        due_date: "",
+        loading: false
     }
 
     //asynchronus krn tdk d tau yang mana dluan muncul
@@ -152,7 +154,9 @@ class Login extends React.Component {
                             </div>
                             <input type="text" name="title" value={this.state.title} onChange={this.change} placeholder="add task..." />
                             <input type="text" name="description" value={this.state.description} onChange={this.change} placeholder="add description" />
-                            <button style={{ padding: "7px" }} onClick={this.addTask}>Add</button>
+                            <button style={{ padding: "7px" }} onClick={this.addTask} disabled={this.state.loading}>
+                                {this.state.loading ? <Spinner size="sm" color="secondary" /> : "Add"}
+                            </button>
                             <input type="text" style={{ marginBottom: "15px" }} name="due_date" value={this.state.due_date} onChange={this.change} placeholder="add due_date" />
                             <div className="layout__task__list">
                                 {this.state.task.map(item =>
@@ -162,7 +166,7 @@ class Login extends React.Component {
                                             <div className="judul"> {item.title} </div>
                                             <div>{item.description}</div>
                                             {item.due_date}
-                                            <button >
+                                            <button>
                                                 <img src={require("../assets/images/pen.png")} alt="" />
                                             </button>
                                             <button onClick={() => this.deleteTask(item.id)}>
