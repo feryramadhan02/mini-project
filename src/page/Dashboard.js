@@ -28,7 +28,6 @@ class Login extends React.Component {
                 }
             })
             this.setState({ task: res.data.data.Search_Result })
-            console.log(res.data.data.Search_Result)
         } catch (error) {
             console.log(error)
         }
@@ -43,7 +42,6 @@ class Login extends React.Component {
                 }
             })
             this.setState({ profile: res1.data.data })
-            console.log(res1.data.data)
         } catch (err) {
             console.log(err)
         }
@@ -136,8 +134,8 @@ class Login extends React.Component {
                         <div className="layout__text-wrapper">
                             <p><Link to="/editprofile">Edit Profile</Link></p>
                             <img src={require("../assets/images/default-user-image.png")} alt="" />
-                            {this.imagePath &&
-                                <img src={this.imagePath} alt="Card image cap" />}
+                            {/* {this.imagePath &&
+                                <img src={this.imagePath} alt="Card image cap" />} */}
                             <h3>{this.state.profile.name}</h3>
                             <ul style={{ marginTop: "20px" }}>
                                 <li><Link to="/my_day">My day</Link></li>

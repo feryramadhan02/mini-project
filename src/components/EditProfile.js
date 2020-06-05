@@ -56,7 +56,7 @@ class EditProfile extends React.Component {
 
             axios({
                 method: "PUT",
-                url: "https://be-mini-project.herokuapp.com/api/profile/${id}",
+                url: "https://be-mini-project.herokuapp.com/api/profile/",
                 headers: {
                     Authorization: token
                 },
